@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"Made it to the next page");
+    NSLog(@"%@", self.user);
 }
 
 - (void)didReceiveMemoryWarning {

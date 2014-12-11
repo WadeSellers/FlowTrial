@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "User.h"
+#import "UserHomeScreenVC.h"
 
 @interface LoginViewController () <UIAlertViewDelegate>
 
@@ -23,7 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 
-@property NSArray *user;
+@property NSArray *userArray;
+@property User *user;
 
 @end
 
@@ -31,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.user = [[User alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -40,23 +43,33 @@
 }
 
 - (IBAction)onPressedLoginButton:(id)sender {
+    self.user.username = self.usernameTextField.text;
+    self.user.password = self.passwordTextField.text;
+
     PFQuery *userQuery = [PFQuery queryWithClassName:@"User"];
-    [userQuery whereKey:@"username" equalTo:self.usernameTextField.text];
+    [userQuery whereKey:@"username" equalTo:self.user.username];
     [userQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error)
         {
             NSLog(@"Error: %@", error.userInfo);
-            self.user = [NSArray array];
+            self.userArray = [NSArray array];
         }
         else
         {
-            self.user = [[NSArray alloc] initWithArray: objects];
+            self.userArray = [[NSArray alloc] initWithArray: objects];
+
+            if ([[[self.userArray objectAtIndex:0] valueForKey:@"password"] isEqualToString:self.user.password])
+            {
+                [self performSegueWithIdentifier:@"intoHomeScreenSegue" sender:sender];
+            }
+            else
+            {
+                UIAlertView *badLoginAlert = [[UIAlertView alloc] initWithTitle:@"Incorrect Login" message:@"Password doesn't match for Username, try again." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                [badLoginAlert show];
+            }
         }
     }];
-
 }
-
-
 
 - (IBAction)onPressedSignUpButton:(id)sender {
     self.loginButton.hidden = YES;
@@ -74,7 +87,7 @@
         [badConfirmPasswordAlert show];
     }
     User *newUser = [[User alloc] init];
-    newUser.username = self.usernameLabel.text;
+    newUser.username = self.usernameTextField.text;
     newUser.password = self.passwordTextField.text;
 
     PFObject *newUserObject = [PFObject objectWithClassName:@"User"];
@@ -82,6 +95,11 @@
     newUserObject[@"password"] = newUser.password;
     [newUserObject saveInBackground];
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UserHomeScreenVC *userHomeScreenVC = [segue destinationViewController];
+    userHomeScreenVC.user = [self.userArray objectAtIndex:0];
 }
 
 
