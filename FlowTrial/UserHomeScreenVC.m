@@ -8,7 +8,18 @@
 
 #import "UserHomeScreenVC.h"
 
-@interface UserHomeScreenVC ()
+@interface UserHomeScreenVC () <UISearchBarDelegate>                                                                                                                                                                                                                                                            
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *ageTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phaseTextField;
+@property (weak, nonatomic) IBOutlet UITextField *cloneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *vegetativeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *floweringTextField;
+
+@property NSArray *parsedItems;
+@property PFObject *displayedItem;
 
 @end
 
@@ -16,23 +27,63 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Made it to the next page");
     NSLog(@"%@", self.user);
+
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self parseForResults];
+
+    
+
+
 }
 
-/*
-#pragma mark - Navigation
+- (void)parseForResults {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *barcode = [formatter numberFromString:self.searchBar.text];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    PFQuery *query = [PFQuery queryWithClassName:@"Inventory"];
+    [query whereKey:@"barcode" equalTo:barcode];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error.userInfo);
+        }
+        else {
+            self.parsedItems =  [[NSArray alloc] initWithArray:objects];
+            NSLog(@"list of items: %@", self.parsedItems);
+            self.displayedItem = [[PFObject alloc] initWithClassName:@"Inventory"];
+            self.displayedItem = [objects firstObject];
+            NSLog(@"%@", self.displayedItem);
+
+            [self displayItemInformation];
+        }
+    }];
 }
-*/
+
+- (void)displayItemInformation {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    NSString *cloneDate = [dateFormatter stringFromDate:self.displayedItem[@"clone"]];
+    NSString *vegetativeDate = [dateFormatter stringFromDate:self.displayedItem[@"vegetative"]];
+    NSString *floweringDate = [dateFormatter stringFromDate:self.displayedItem[@"flowering"]];
+
+
+
+    self.nameTextField.text = self.displayedItem[@"name"];
+    self.ageTextField.text = [self.displayedItem[@"age"] stringValue];
+    self.phaseTextField.text = self.displayedItem[@"phase"];
+    self.cloneTextField.text = cloneDate;
+    self.vegetativeTextField.text = vegetativeDate;
+    self.floweringTextField.text = floweringDate;
+
+    NSLog(@"did this appear last, %@", self.displayedItem[@"name"]);
+}
+
+
+
 
 @end
