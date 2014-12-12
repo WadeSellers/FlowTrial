@@ -28,16 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"%@", self.user);
-
-
-
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self parseForResults];
-
-    
-
 
 }
 
@@ -57,7 +51,6 @@
             NSLog(@"list of items: %@", self.parsedItems);
             self.displayedItem = [[PFObject alloc] initWithClassName:@"Inventory"];
             self.displayedItem = [objects firstObject];
-            NSLog(@"%@", self.displayedItem);
 
             [self displayItemInformation];
         }
@@ -71,17 +64,23 @@
     NSString *vegetativeDate = [dateFormatter stringFromDate:self.displayedItem[@"vegetative"]];
     NSString *floweringDate = [dateFormatter stringFromDate:self.displayedItem[@"flowering"]];
 
-
-
     self.nameTextField.text = self.displayedItem[@"name"];
     self.ageTextField.text = [self.displayedItem[@"age"] stringValue];
     self.phaseTextField.text = self.displayedItem[@"phase"];
     self.cloneTextField.text = cloneDate;
     self.vegetativeTextField.text = vegetativeDate;
     self.floweringTextField.text = floweringDate;
-
-    NSLog(@"did this appear last, %@", self.displayedItem[@"name"]);
 }
+
+
+#pragma mark - UGrokIt delegate methods
+- (id) init {
+    self = [super init];
+    [Ugi singleton].loggingStatus = UGI_LOGGING_STATE | UGI_LOGGING_INVENTORY;
+    return self;
+}
+
+
 
 
 

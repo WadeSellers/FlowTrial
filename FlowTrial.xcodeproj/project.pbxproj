@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1660CEDA1A3B9136000D70C8 /* libUGrokItApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1660CED91A3B9136000D70C8 /* libUGrokItApi.a */; };
+		1660CEDC1A3B916C000D70C8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1660CEDB1A3B916C000D70C8 /* AVFoundation.framework */; };
+		1660CEDE1A3B9177000D70C8 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1660CEDD1A3B9177000D70C8 /* libz.1.2.5.dylib */; };
+		1660CEE01A3B9181000D70C8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1660CEDF1A3B9181000D70C8 /* MediaPlayer.framework */; };
 		16B702C01A394B6A00D770D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B702BF1A394B6A00D770D2 /* main.m */; };
 		16B702C31A394B6A00D770D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B702C21A394B6A00D770D2 /* AppDelegate.m */; };
 		16B702C61A394B6A00D770D2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B702C51A394B6A00D770D2 /* LoginViewController.m */; };
@@ -42,6 +46,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1660CED91A3B9136000D70C8 /* libUGrokItApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUGrokItApi.a; path = ../libUGrokItApi.a; sourceTree = "<group>"; };
+		1660CEDB1A3B916C000D70C8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1660CEDD1A3B9177000D70C8 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		1660CEDF1A3B9181000D70C8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1660CEE21A3B97DD000D70C8 /* Ugi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ugi.h; path = ../Ugi.h; sourceTree = "<group>"; };
+		1660CEE31A3B9878000D70C8 /* Ugi_antennaTuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ugi_antennaTuning.h; path = ../Ugi_antennaTuning.h; sourceTree = "<group>"; };
+		1660CEE41A3B9878000D70C8 /* Ugi_firmwareUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ugi_firmwareUpdate.h; path = ../Ugi_firmwareUpdate.h; sourceTree = "<group>"; };
+		1660CEE51A3B9878000D70C8 /* UgiEpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiEpc.h; path = ../UgiEpc.h; sourceTree = "<group>"; };
+		1660CEE61A3B9878000D70C8 /* UgiInventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiInventory.h; path = ../UgiInventory.h; sourceTree = "<group>"; };
+		1660CEE71A3B9878000D70C8 /* UgiInventoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiInventoryDelegate.h; path = ../UgiInventoryDelegate.h; sourceTree = "<group>"; };
+		1660CEE81A3B9878000D70C8 /* UgiJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiJson.h; path = ../UgiJson.h; sourceTree = "<group>"; };
+		1660CEE91A3B9878000D70C8 /* UgiRfidConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiRfidConfiguration.h; path = ../UgiRfidConfiguration.h; sourceTree = "<group>"; };
+		1660CEEA1A3B9878000D70C8 /* UgiTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiTag.h; path = ../UgiTag.h; sourceTree = "<group>"; };
+		1660CEEB1A3B9878000D70C8 /* UgiTagReadState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiTagReadState.h; path = ../UgiTagReadState.h; sourceTree = "<group>"; };
+		1660CEEC1A3B9878000D70C8 /* UgiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UgiUtil.h; path = ../UgiUtil.h; sourceTree = "<group>"; };
 		16B702BA1A394B6A00D770D2 /* FlowTrial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowTrial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B702BE1A394B6A00D770D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16B702BF1A394B6A00D770D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,12 +98,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1660CEE01A3B9181000D70C8 /* MediaPlayer.framework in Frameworks */,
+				1660CEDE1A3B9177000D70C8 /* libz.1.2.5.dylib in Frameworks */,
+				1660CEDC1A3B916C000D70C8 /* AVFoundation.framework in Frameworks */,
 				16B702F21A394D9B00D770D2 /* AudioToolbox.framework in Frameworks */,
 				16B702F31A394D9B00D770D2 /* CFNetwork.framework in Frameworks */,
 				16B702F41A394D9B00D770D2 /* CoreGraphics.framework in Frameworks */,
 				16B702F51A394D9B00D770D2 /* CoreLocation.framework in Frameworks */,
 				16B702F61A394D9B00D770D2 /* libsqlite3.dylib in Frameworks */,
 				16B702F71A394D9B00D770D2 /* libz.dylib in Frameworks */,
+				1660CEDA1A3B9136000D70C8 /* libUGrokItApi.a in Frameworks */,
 				16B702F81A394D9B00D770D2 /* MobileCoreServices.framework in Frameworks */,
 				16B702F91A394D9B00D770D2 /* QuartzCore.framework in Frameworks */,
 				16B702FA1A394D9B00D770D2 /* Security.framework in Frameworks */,
@@ -145,19 +168,34 @@
 		16B702BD1A394B6A00D770D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1660CEE21A3B97DD000D70C8 /* Ugi.h */,
+				1660CEE31A3B9878000D70C8 /* Ugi_antennaTuning.h */,
+				1660CEE41A3B9878000D70C8 /* Ugi_firmwareUpdate.h */,
+				1660CEE51A3B9878000D70C8 /* UgiEpc.h */,
+				1660CEE61A3B9878000D70C8 /* UgiInventory.h */,
+				1660CEE71A3B9878000D70C8 /* UgiInventoryDelegate.h */,
+				1660CEE81A3B9878000D70C8 /* UgiJson.h */,
+				1660CEE91A3B9878000D70C8 /* UgiRfidConfiguration.h */,
+				1660CEEA1A3B9878000D70C8 /* UgiTag.h */,
+				1660CEEB1A3B9878000D70C8 /* UgiTagReadState.h */,
+				1660CEEC1A3B9878000D70C8 /* UgiUtil.h */,
+				1660CED91A3B9136000D70C8 /* libUGrokItApi.a */,
+				1660CEDB1A3B916C000D70C8 /* AVFoundation.framework */,
+				16B702E31A394CDB00D770D2 /* Bolts.framework */,
+				1660CEDF1A3B9181000D70C8 /* MediaPlayer.framework */,
 				16B702E71A394D9B00D770D2 /* AudioToolbox.framework */,
 				16B702E81A394D9B00D770D2 /* CFNetwork.framework */,
 				16B702E91A394D9B00D770D2 /* CoreGraphics.framework */,
 				16B702EA1A394D9B00D770D2 /* CoreLocation.framework */,
-				16B702EB1A394D9B00D770D2 /* libsqlite3.dylib */,
-				16B702EC1A394D9B00D770D2 /* libz.dylib */,
 				16B702ED1A394D9B00D770D2 /* MobileCoreServices.framework */,
 				16B702EE1A394D9B00D770D2 /* QuartzCore.framework */,
 				16B702EF1A394D9B00D770D2 /* Security.framework */,
 				16B702F01A394D9B00D770D2 /* StoreKit.framework */,
 				16B702F11A394D9B00D770D2 /* SystemConfiguration.framework */,
-				16B702E31A394CDB00D770D2 /* Bolts.framework */,
 				16B702E41A394CDB00D770D2 /* Parse.framework */,
+				16B702EB1A394D9B00D770D2 /* libsqlite3.dylib */,
+				16B702EC1A394D9B00D770D2 /* libz.dylib */,
+				1660CEDD1A3B9177000D70C8 /* libz.1.2.5.dylib */,
 				16B702BE1A394B6A00D770D2 /* Info.plist */,
 				16B702BF1A394B6A00D770D2 /* main.m */,
 			);
@@ -413,6 +451,11 @@
 				);
 				INFOPLIST_FILE = FlowTrial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -427,6 +470,11 @@
 				);
 				INFOPLIST_FILE = FlowTrial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -484,6 +532,7 @@
 				16B702DF1A394B6A00D770D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16B702E01A394B6A00D770D2 /* Build configuration list for PBXNativeTarget "FlowTrialTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +541,7 @@
 				16B702E21A394B6A00D770D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
