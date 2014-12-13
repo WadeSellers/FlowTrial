@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.user = [[User alloc] init];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {

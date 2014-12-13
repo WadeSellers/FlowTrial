@@ -22,6 +22,15 @@
                   clientKey:@"B5onwj3iXXduPjS6sD7GtoiHkV8oNiteK2AWtrOX"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
+    [Ugi singleton].loggingStatus = UGI_LOGGING_STATE | UGI_LOGGING_INTERNAL_CONNECTION_ERRORS;
+    //
+    // Add an observer to get connection state changes
+    //
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(connectionStateChanged:)
+                                                 name:[Ugi singleton].NOTIFICAION_NAME_CONNECTION_STATE_CHANGED
+                                               object:nil];
+
     [[Ugi singleton] openConnection];
 
     return YES;
